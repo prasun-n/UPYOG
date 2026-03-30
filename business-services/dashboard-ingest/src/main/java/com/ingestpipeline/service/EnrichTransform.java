@@ -49,11 +49,19 @@ public class EnrichTransform {
 		List chainrSpecJSON = null ;
         Object transNode = null;
 		try {
+			LOGGER.info("rawResponseNode keys inside transform : " + rawResponseNode.keySet());
+			LOGGER.info("rawResponseNode inside transform : " + rawResponseNode);
+			
             chainrSpecJSON = mapper.readValue(configLoader.get(OBJECTIVE.concat(SEPARATOR).concat(businessService.toLowerCase()).concat(SEPARATOR).concat(VERSION).concat(JSON_EXTENSION)), List.class);
-            LOGGER.info("ChainrSpecJSON::" + chainrSpecJSON);
+            LOGGER.info("ChainrSpecJSON inside transform:" + chainrSpecJSON);
+            
             Chainr chainr = Chainr.fromSpec( chainrSpecJSON );
-
+            
+            LOGGER.info("Contains _source at root? : " + rawResponseNode.containsKey("_source"));
+            
             Object indexData = rawResponseNode.keySet().contains("_source") ? ((Map)rawResponseNode.get("_source")).get("Data") : null;
+            LOGGER.info("indexData inside transform : " + indexData);
+            
             transNode = indexData!= null ? chainr.transform(indexData) : null;
 
 		} catch (Exception e) {

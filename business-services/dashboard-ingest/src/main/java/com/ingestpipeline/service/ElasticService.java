@@ -166,10 +166,13 @@ public class ElasticService implements IESService {
 
         try {
 			ResponseEntity<Object> response = retryTemplate.postForEntity(url,requestEntity);
-
+			LOGGER.error("--response inside search: " , response);
             Map responseNode = new ObjectMapper().convertValue(response.getBody(), Map.class);
+            LOGGER.error("--responseNode inside search: " , responseNode);
 			Map hits = (Map)responseNode.get("hits");
-            if((Integer)hits.get("total") >=1)
+			LOGGER.error("--hits inside search : " , hits);
+			Map hitsTotalMap = (Map)hits.get("total");
+            if((Integer)hitsTotalMap.get("value") >=1)
                 return (Map)((ArrayList)hits.get("hits")).get(0);
 
         } catch (HttpClientErrorException e) {
@@ -177,6 +180,9 @@ public class ElasticService implements IESService {
             LOGGER.error("client error while searching ES : " + e.getMessage());
 
         }
+         catch (Exception e) {
+        	 LOGGER.error("EXCEPTION on ES search : " , e.getMessage());
+         }
         return null;
     }
 	
@@ -314,8 +320,11 @@ public class ElasticService implements IESService {
     public List searchMultiple(String index, String searchQuery) throws Exception {
 
         String url = indexServiceHost + index + indexServiceHostSearch;
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        //HttpHeaders headers = new HttpHeaders();
+        //headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpHeaders headers = getHttpHeaders();
+        LOGGER.info("headers inside searchMultiple" +headers);
+        
 
         LOGGER.info("searching searchMultiple ES for query::" + searchQuery + "::on::" + index + "::ON URL::" + url);
 
@@ -323,11 +332,17 @@ public class ElasticService implements IESService {
 
         try {
 			ResponseEntity<Object> response = retryTemplate.postForEntity(url,requestEntity);
-
+			LOGGER.error("--response inside searchMultiple : " , response);
             Map responseNode = new ObjectMapper().convertValue(response.getBody(), Map.class);
+            LOGGER.error("--responseNode inside searchMultiple : " , responseNode);
 			Map hits = (Map)responseNode.get("hits");
-            if((Integer)hits.get("total") >=1)
-                return (List) ((ArrayList)hits.get("hits"));
+			LOGGER.error("--hits inside searchMultiple : " , hits);
+			Map hitsTotalMap = (Map)hits.get("total");
+            if((Integer)hitsTotalMap.get("value") >=1)
+            	return (List) hits.get("hits");
+            
+//            if((Integer)hits.get("total") >=1)
+//                return (List) ((ArrayList)hits.get("hits"));
 
         } catch (HttpClientErrorException e) {
             e.printStackTrace();
