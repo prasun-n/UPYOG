@@ -1,4 +1,3 @@
-import msevaLogo from "egov-ui-kit/assets/images/pblogo.png";
 import { getDateFromEpoch } from "egov-ui-kit/utils/commons";
 import get from "lodash/get";
 import { getTranslatedLabel, getUlbGradeLabel, getCommaSeperatedAddress } from "egov-ui-kit/utils/commons";
@@ -78,7 +77,7 @@ const getHeaderDetails = (property = {}, cities, localizationLabels, isAcknowled
     // header: getReceiptHeaderLabel(name, ulbGrade),
     header: `${getTranslatedLabel(cityKey, localizationLabels).toUpperCase()} ${getTranslatedLabel(ulbGrade, localizationLabels)}`,
     subheader: subheader,
-    logo: msevaLogo,
+    logo: "https://in-egov-assets.s3.ap-south-1.amazonaws.com/nugp.png",
     contact: propertyTenant[0].contactNumber,
     website: propertyTenant[0].domainUrl,
   };

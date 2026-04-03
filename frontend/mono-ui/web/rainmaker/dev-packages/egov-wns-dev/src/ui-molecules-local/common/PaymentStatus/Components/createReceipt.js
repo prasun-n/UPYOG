@@ -1,4 +1,4 @@
-import msevaLogo from "egov-ui-kit/assets/images/pblogo.png";
+
 import { getDateFromEpoch } from "egov-ui-kit/utils/commons";
 import get from "lodash/get";
 import { getTranslatedLabel } from "egov-ui-kit/utils/commons";
@@ -55,7 +55,7 @@ const getHeaderDetails = (property, cities) => {
   return {
     header: `${propertyTenant[0].name} MUNICIPAL CORPORATION`,
     subheader: "Property Tax Payment Receipt (Citizen Copy)",
-    logo: propertyTenant[0].imageId || msevaLogo,
+    logo: propertyTenant[0].imageId || "https://in-egov-assets.s3.ap-south-1.amazonaws.com/nugp.png",
     contact: propertyTenant[0].contactNumber,
     website: propertyTenant[0].domainUrl,
   };

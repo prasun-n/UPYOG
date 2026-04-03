@@ -1,6 +1,5 @@
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import msevaLogo from "egov-ui-kit/assets/images/pblogo.png";
 import store from "redux/store";
 import { downloadPDFFileUsingBase64 } from "egov-ui-framework/ui-utils/commons"
 import {localStorageGet} from "egov-ui-kit/utils/localStorageUtils";
@@ -181,7 +180,7 @@ const generateReceipt = (role, details, generalMDMSDataById, receiptImageUrl, is
               body: [
                 [
                   {
-                    image: receiptImageUrl || msevaLogo,
+                    image: receiptImageUrl || "https://in-egov-assets.s3.ap-south-1.amazonaws.com/nugp.png",
                     width: 30,
                     margin: [10, 10, 10, 10],
                   },

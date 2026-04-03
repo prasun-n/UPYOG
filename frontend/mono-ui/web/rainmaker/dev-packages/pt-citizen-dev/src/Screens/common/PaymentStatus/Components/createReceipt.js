@@ -1,4 +1,4 @@
-import msevaLogo from "egov-ui-kit/assets/images/pblogo.png";
+import msevaLogo from "egov-ui-kit/assets/images/upyog.png";
 import { getDateFromEpoch } from "egov-ui-kit/utils/commons";
 import get from "lodash/get";
 import { getTranslatedLabel } from "egov-ui-kit/utils/commons";

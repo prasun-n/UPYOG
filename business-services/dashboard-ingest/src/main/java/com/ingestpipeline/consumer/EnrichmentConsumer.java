@@ -44,6 +44,7 @@ public class EnrichmentConsumer implements KafkaConsumer {
 	@KafkaListener(id = INTENT, groupId = INTENT, topics = { Constants.KafkaTopics.TRANSFORMED_DATA}, containerFactory = Constants.BeanContainerFactory.INCOMING_KAFKA_LISTENER)
 	public void processMessage(final Map incomingData,
 			@Header(KafkaHeaders.RECEIVED_TOPIC) final String topic) {
+		LOGGER.info("----INSIDE processMessage OF EnrichmentConsumer ----"+ topic +"IS THE TOPIC");
 
 		LOGGER.info("##KafkaMessageAlert## : key:" + topic + ":" + "value:" + incomingData.size());
 
@@ -57,6 +58,7 @@ public class EnrichmentConsumer implements KafkaConsumer {
 	}
 
 	private void push(Map incomingData, String docId ) {
+		LOGGER.info("----INSIDE push OF EnrichmentConsumer ----");
 
 		try {
 			LOGGER.info("incomingData inside push: "+incomingData);

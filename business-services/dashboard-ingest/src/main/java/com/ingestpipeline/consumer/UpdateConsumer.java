@@ -40,6 +40,7 @@ public class UpdateConsumer {
     @KafkaListener(topics = "${kafka.topics.bypass.update.data}" , containerFactory = Constants.BeanContainerFactory.INCOMING_KAFKA_LISTENER)
     public void processMessage(Map data,
                                @Header(KafkaHeaders.RECEIVED_TOPIC) final String topic) {
+    	LOGGER.info("----INSIDE processMessage OF UpdateConsumer ----"+topic+ "IS THE TOPIC");
         LOGGER.info("##KafkaMessageAlert## : key:" + topic + ":" + "value:" + data.size());
         try {
 

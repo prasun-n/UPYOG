@@ -188,6 +188,7 @@ public class ElasticService implements IESService {
 	
 	@Override
 	public Boolean push(Map requestBody) throws Exception {
+		LOGGER.info("----INSIDE push of ElasticService----  collectionIndexName: "+collectionIndexName);
 
 		Object id = requestBody.get(Constants.IDENTIFIER);
 		Object trxid = ((Map)requestBody.get(Constants.DATA_OBJECT)).get(Constants.TRANSACTION_ID);
@@ -230,7 +231,7 @@ public class ElasticService implements IESService {
 
 	@Override
 	public Boolean push(TargetData requestBody) throws Exception {
-
+		LOGGER.info("----INSIDE push of ElasticService(TargetData)----targetIndexName: " +targetIndexName );
 		Long currentDateTime = new Date().getTime();
 		String url = indexerServiceHost + targetIndexName + DOC_TYPE + requestBody.getId();
 
@@ -318,7 +319,7 @@ public class ElasticService implements IESService {
 	
 	@Override
     public List searchMultiple(String index, String searchQuery) throws Exception {
-
+		LOGGER.info("searchMultiple ES for query: " + searchQuery + " on " + index);
         String url = indexServiceHost + index + indexServiceHostSearch;
         //HttpHeaders headers = new HttpHeaders();
         //headers.setContentType(MediaType.APPLICATION_JSON);

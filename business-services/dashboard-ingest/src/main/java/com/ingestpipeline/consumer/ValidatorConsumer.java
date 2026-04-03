@@ -34,6 +34,7 @@ public class ValidatorConsumer implements KafkaConsumer {
     @KafkaListener(id = INTENT, groupId = INTENT, topics = {Constants.KafkaTopics.INGEST_DATA} , containerFactory = Constants.BeanContainerFactory.INCOMING_KAFKA_LISTENER)
     public void processMessage(Map consumerRecord,
 							   @Header(KafkaHeaders.RECEIVED_TOPIC) final String topic) {
+    	LOGGER.info("----INSIDE processMessage OF ValidatorConsumer ----"+topic+ "IS THE TOPIC");
     	LOGGER.info("##KafkaMessageAlert## Message Received at Validator Consumer : key:" + topic + ":" + "value:" + consumerRecord.size());
     	try {
 			boolean isValid = validationService.validateData(consumerRecord);

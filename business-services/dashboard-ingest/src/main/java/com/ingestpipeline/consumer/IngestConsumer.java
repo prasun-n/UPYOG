@@ -24,6 +24,7 @@ public class IngestConsumer{
 	@KafkaListener(topics = { "${kafka.topics.incoming.collection}" }, containerFactory = Constants.BeanContainerFactory.INCOMING_KAFKA_LISTENER)
 	public void processMessage(Map data,
 							   @Header(KafkaHeaders.RECEIVED_TOPIC) final String topic) {
+		LOGGER.info("----INSIDE processMessage OF  IngestConsumer----" + topic +"IS THE TOPIC");
 		LOGGER.info("##KafkaMessageAlert## : key:" + topic + ":" + "value:" + data.size());
 		try {
 			LOGGER.info("IngestConsumer ## get data ## " +data +" ## TOPIC ## "+topic);

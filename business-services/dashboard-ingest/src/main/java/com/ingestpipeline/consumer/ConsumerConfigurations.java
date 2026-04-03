@@ -15,6 +15,8 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The configurations for the Kafka Consumers are fed from this Config Class
@@ -53,8 +55,10 @@ public class ConsumerConfigurations {
     @Value("${spring.kafka.consumer.key-deserializer}")
     private String keyDeserializer;
 
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerConfigurations.class);    
+    
     public ConsumerFactory<String, Map> kafkaConsumerFactory() {
+    	LOGGER.info("----INSIDE ConsumerFactory OF ConsumerConfigurations ----");
         JsonDeserializer<Map> deserializer = new JsonDeserializer<>(Map.class);
         //deserializer.setRemoveTypeHeaders(false);
         deserializer.addTrustedPackages("*");
@@ -68,6 +72,7 @@ public class ConsumerConfigurations {
 
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, Map> incomingKafkaListenerContainerFactory() {
+    	 LOGGER.info("----INSIDE ConcurrentKafkaListenerContainerFactory OF ConsumerConfigurations ----");
         ConcurrentKafkaListenerContainerFactory<String, Map> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(kafkaConsumerFactory());
         return factory;

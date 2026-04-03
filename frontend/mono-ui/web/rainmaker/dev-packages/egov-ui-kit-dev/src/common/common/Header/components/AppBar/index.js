@@ -4,8 +4,6 @@ import Label from "egov-ui-kit/utils/translationNode";
 import UserSettings from "../UserSettings";
 import Toolbar from "material-ui/Toolbar";
 import Badge from "@material-ui/core/Badge";
-import digitLogo from "egov-ui-kit/assets/images/Digit_logo.png";
-import pbLogo from "egov-ui-kit/assets/images/pblogo.png";
 import IconButton from "material-ui/IconButton";
 import { onNotificationClick } from "egov-ui-kit/utils/commons";
 import "./index.css";
@@ -58,7 +56,7 @@ const EgovAppBar = ({
         title={
           <div className="citizen-header-logo-label">
             <div className="citizen-header-logo">
-              <img src={ulbLogo ? ulbLogo : pbLogo} onError={(event) => event.target.setAttribute("src", pbLogo)} />
+              <img src={ulbLogo ? ulbLogo : "https://in-egov-assets.s3.ap-south-1.amazonaws.com/nugp.png"} onError={(event) => event.target.setAttribute("src", "https://in-egov-assets.s3.ap-south-1.amazonaws.com/nugp.png")} />
             </div>
             <Label containerStyle={{ marginLeft: "0px" }} className="screenHeaderLabelStyle appbar-title-label" label={title} />
             {titleAddon && (
@@ -106,7 +104,7 @@ const EgovAppBar = ({
         )}
 
         <div className="appbar-right-logo">
-          <img src={logoImage?logoImage:digitLogo} />
+          <img src={logoImage?logoImage:"https://in-egov-assets.s3.ap-south-1.amazonaws.com/nugp.png"} />
         </div>
         <div className="icon-button">
           {refreshButton && (

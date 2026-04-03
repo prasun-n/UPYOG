@@ -1,5 +1,4 @@
 import { getLocaleLabels } from "egov-ui-framework/ui-utils/commons.js";
-import msevaLogo from "egov-ui-kit/assets/images/pblogo.png";
 import pdfMake from "pdfmake/build/pdfmake";
 //import pdfFonts from "pdfmake/build/vfs_fonts";
 import pdfFonts from "./vfs_fonts";
@@ -224,7 +223,7 @@ const generateAcknowledgementForm = (role, details, generalMDMSDataById, receipt
               body: [
                 [
                   {
-                    image: receiptImageUrl || msevaLogo,
+                    image: receiptImageUrl || "https://in-egov-assets.s3.ap-south-1.amazonaws.com/nugp.png",
                     width: 40,
                     margin: [10, 10, 10, 10],
                   },

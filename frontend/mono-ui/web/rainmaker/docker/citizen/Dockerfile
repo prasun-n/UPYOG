@@ -6,6 +6,7 @@ ENV NODE_OPTIONS "--max-old-space-size=1792"
 
 # copy the project files
 COPY ${WORK_DIR} .
+RUN yarn config set ignore-engines true
 RUN yarn run prod:citizen
 
 # Create runtime image

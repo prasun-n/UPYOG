@@ -1,7 +1,5 @@
 import { AppBar, DropDown } from "components";
 import { isPublicSearch } from "egov-ui-framework/ui-utils/commons";
-import digitLogo from "egov-ui-kit/assets/images/Digit_logo.png";
-import msevaLogo from "egov-ui-kit/assets/images/mseva-punjab.png";
 import { fetchLocalizationLabel, setLocalizationLabels } from "egov-ui-kit/redux/app/actions";
 import { getQueryArg } from "egov-ui-kit/utils/commons";
 import { getLocale, getTenantId, getUserInfo, setLocale, setStoredModulesList } from "egov-ui-kit/utils/localStorageUtils";
@@ -164,7 +162,7 @@ const withoutAuthorization = (redirectionUrl) => (Component) => {
                     )}
                   </Toolbar>
                   <div className="appbar-right-logo">
-                    <img src={digitLogo} />
+                    <img src={"https://in-egov-assets.s3.ap-south-1.amazonaws.com/nugp.png"} />
                   </div>
                 </AppBar>
               </div>
@@ -192,10 +190,10 @@ const withoutAuthorization = (redirectionUrl) => (Component) => {
     const ulbName = userTenant && get(userTenant[0], "code");
     const defaultTitle = ulbGrade && getUlbGradeLabel(ulbGrade);
     const ulbLogo = isPublicSearch()
-      ? msevaLogo
+      ? "https://in-egov-assets.s3.ap-south-1.amazonaws.com/nugp.png"
       : userTenant.length > 0
       ? get(userTenant[0], "logoId")
-      : "https://s3.ap-south-1.amazonaws.com/pb-egov-assets/pb.amritsar/logo.png";
+      : "https://in-egov-assets.s3.ap-south-1.amazonaws.com/nugp.png";
     if (stateInfoById && stateInfoById.length > 0) {
       hasLocalisation = stateInfoById[0].hasLocalisation;
       defaultUrl = stateInfoById[0].defaultUrl;

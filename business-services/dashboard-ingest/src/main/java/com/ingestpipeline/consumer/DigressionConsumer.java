@@ -23,6 +23,7 @@ public class DigressionConsumer implements KafkaConsumer {
 	@KafkaListener(topics = { Constants.KafkaTopics.VALID_DATA }, containerFactory = Constants.BeanContainerFactory.INCOMING_KAFKA_LISTENER)
 	public void processMessage(Map incomingData,
 							   @Header(KafkaHeaders.RECEIVED_TOPIC) final String topic) {
+		LOGGER.info("----INSIDE processMessage OF DigressionConsumer ----"+topic+ "IS THE TOPIC");
 		LOGGER.info("##KafkaMessageAlert## : key:" + topic + ":" + "value:" + incomingData.size());
 		try {
 			

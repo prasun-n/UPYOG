@@ -40,6 +40,7 @@ public class TransformConsumer implements KafkaConsumer {
 	@KafkaListener(id = INTENT, groupId = INTENT, topics = { Constants.KafkaTopics.VALID_DATA }, containerFactory = Constants.BeanContainerFactory.INCOMING_KAFKA_LISTENER)
 	public void processMessage(Map incomingData,
 							   @Header(KafkaHeaders.RECEIVED_TOPIC) final String topic) {
+		LOGGER.info("----INSIDE processMessage OF TransformConsumer ----"+topic+ "IS THE TOPIC");
 		LOGGER.info("##KafkaMessageAlert## : key:" + topic + ":" + "value:" + incomingData.size());
 		try {
 			boolean isTransformed = false;
