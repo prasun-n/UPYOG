@@ -27,7 +27,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 
 import javax.validation.constraints.Min;
 
@@ -43,7 +43,7 @@ import javax.validation.constraints.Min;
 public class Amount {
 
   @JsonProperty("taxHeadCode")
-  @SafeHtml
+  @CustomSafeHtml
   private String taxHeadCode = null;
 
   @JsonProperty("amount")

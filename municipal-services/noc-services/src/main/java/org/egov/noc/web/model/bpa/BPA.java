@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 
 import org.egov.noc.web.model.AuditDetails;
 import org.egov.noc.web.model.Workflow;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -31,39 +31,39 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class BPA   {
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("id")
   private String id = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("applicationNo")
   private String applicationNo = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("approvalNo")
   private String approvalNo = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("accountId")
   private String accountId = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("edcrNumber")
   private String edcrNumber = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("riskType")
   private String riskType = null;
   
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("businessService")
   private String businessService = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("landId")
   private String landId = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("tenantId")
   private String tenantId = null;
 
@@ -73,7 +73,7 @@ public class BPA   {
   @JsonProperty("applicationDate")
   private Long applicationDate = null;
   
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("status")
   private String status = null;
 

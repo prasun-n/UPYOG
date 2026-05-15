@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.List;
 import org.egov.common.contract.request.Role;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 
 /**
  * User role carries the tenant related role information for the user. A user can have multiple roles per tenant based on the need of the tenant. A user may also have multiple roles for multiple tenants.
@@ -27,7 +27,7 @@ import org.hibernate.validator.constraints.SafeHtml;
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-08-10T16:46:24.044+05:30[Asia/Calcutta]")public class TenantRole {
 
   @JsonProperty("tenantId")
-  @SafeHtml
+  @CustomSafeHtml
   private String tenantId = null;
 
   @JsonProperty("roles")

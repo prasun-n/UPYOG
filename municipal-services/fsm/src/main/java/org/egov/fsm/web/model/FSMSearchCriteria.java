@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
@@ -23,11 +23,11 @@ public class FSMSearchCriteria {
     @JsonProperty("limit")
     private Integer limit;
 
-    @SafeHtml
+    @CustomSafeHtml
     @JsonProperty("tenantId")
     private String tenantId;
 
-    @SafeHtml
+    @CustomSafeHtml
     @JsonProperty("mobileNumber")
     private String mobileNumber; 
     

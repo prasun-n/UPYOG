@@ -7,7 +7,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 import org.egov.swservice.web.models.AuditDetails;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -38,17 +38,17 @@ import lombok.ToString;
 public class State   {
 
         @Size(max=256)
-        @SafeHtml
+        @CustomSafeHtml
         @JsonProperty("uuid")
         private String uuid;
 
         @Size(max=256)
-        @SafeHtml
+        @CustomSafeHtml
         @JsonProperty("tenantId")
         private String tenantId;
 
         @Size(max=256)
-        @SafeHtml
+        @CustomSafeHtml
         @JsonProperty("businessServiceId")
         private String businessServiceId;
 
@@ -56,12 +56,12 @@ public class State   {
         private Long sla;
 
         @Size(max=256)
-        @SafeHtml
+        @CustomSafeHtml
         @JsonProperty("state")
         private String state;
 
         @Size(max=256)
-        @SafeHtml
+        @CustomSafeHtml
         @JsonProperty("applicationStatus")
         private String applicationStatus;
 

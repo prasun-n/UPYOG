@@ -7,7 +7,7 @@ import java.util.Objects;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,23 +30,23 @@ import lombok.ToString;
 @Builder
 public class Boundary {
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("code")
 	private String code = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("name")
 	private String name = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("label")
 	private String label = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("latitude")
 	private String latitude = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("longitude")
 	private String longitude = null;
 
@@ -54,7 +54,7 @@ public class Boundary {
 	@Valid
 	private List<Boundary> children = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("materializedPath")
 	private String materializedPath = null;
 

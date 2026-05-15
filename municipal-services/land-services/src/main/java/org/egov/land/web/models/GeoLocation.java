@@ -2,7 +2,7 @@ package org.egov.land.web.models;
 
 import java.util.Objects;
 
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class GeoLocation   {
 
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("id")
   private String id = null;
 

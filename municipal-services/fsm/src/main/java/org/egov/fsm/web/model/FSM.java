@@ -11,7 +11,7 @@ import org.egov.fsm.web.model.location.Address;
 import org.egov.fsm.web.model.user.User;
 import org.egov.fsm.web.model.vehicle.Vehicle;
 import org.egov.fsm.web.model.workflow.ProcessInstance;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,55 +40,55 @@ public class FSM   {
   @Valid
   private User citizen ;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("id")
   private String id ;
 
   @NotNull
-  @SafeHtml
+  @CustomSafeHtml
   @Size(min=2,max=64)
   @JsonProperty("tenantId")
   private String tenantId ;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("applicationNo")
   private String applicationNo ;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("description")
   private String description ;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("accountId")
   private String accountId ;
 
   @JsonProperty("additionalDetails")
   private Object additionalDetails ;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("applicationStatus")
   private String applicationStatus ;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("source")
   private String source ;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("sanitationtype")
   private String sanitationtype ;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("propertyUsage")
   private String propertyUsage ;
   
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("vehicleType")
   private String vehicleType ;
  
   @JsonProperty("noOfTrips")
   private Integer noOfTrips ;
   
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("vehicleCapacity")
   private String vehicleCapacity ;
 
@@ -125,14 +125,14 @@ public class FSM   {
   @JsonProperty("status")
   private StatusEnum status ;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("vehicleId")
   private String vehicleId ;
   
   @JsonProperty("vehicle")
   private Vehicle vehicle ;
   
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("dsoId")
   private String dsoId ;
   

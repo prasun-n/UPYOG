@@ -2,7 +2,7 @@ package org.egov.fsm.web.model.vehicle;
 
 import org.egov.fsm.web.model.AuditDetails;
 import org.egov.fsm.web.model.user.User;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,33 +29,33 @@ import lombok.ToString;
 @Builder
 public class Vehicle {
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("id")
 	private String id;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("tenantId")
 	private String tenantId;
 
 	@NonNull
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("registrationNumber")
 	private String registrationNumber;
 
 	@NonNull
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("model")
 	private String model;
 
 	@NonNull
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("type")
 	private String type;
 
 	@JsonProperty("tankCapacity")
 	private Double tankCapacity;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("suctionType")
 	private String suctionType;
 
@@ -77,11 +77,11 @@ public class Vehicle {
 	@JsonProperty("additionalDetails")
 	private Object additionalDetails ;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("source")
 	private String source;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("ownerId")
 	private String ownerId;
 

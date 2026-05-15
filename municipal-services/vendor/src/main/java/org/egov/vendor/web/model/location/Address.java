@@ -1,7 +1,7 @@
 package org.egov.vendor.web.model.location;
 
 import org.egov.vendor.web.model.AuditDetails;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,58 +30,58 @@ import lombok.ToString;
 @Builder
 public class Address {
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("tenantId")
 	private String tenantId = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("doorNo")
 	private String doorNo = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("plotNo")
 	private String plotNo = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("id")
 	private String id = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("landmark")
 	private String landmark = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("city")
 	private String city = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("district")
 	private String district = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("region")
 	private String region = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("state")
 	private String state = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("country")
 	private String country = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("pincode")
 	private String pincode = null;
 
 	@JsonProperty("additionalDetails")
 	private Object additionalDetails = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("buildingName")
 	private String buildingName = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("street")
 	private String street = null;
 

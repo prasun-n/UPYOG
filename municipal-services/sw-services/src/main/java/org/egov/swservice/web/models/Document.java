@@ -9,7 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 
 @Data
 @AllArgsConstructor
@@ -18,21 +18,21 @@ import org.hibernate.validator.constraints.SafeHtml;
 @EqualsAndHashCode(of= {"fileStoreId","documentUid","id"})
 public class Document {
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("id")
   private String id ;
 
   @JsonProperty("documentType")
-  @SafeHtml
+  @CustomSafeHtml
   @NotNull
   private String documentType ;
 
   @JsonProperty("fileStoreId")
-  @SafeHtml
+  @CustomSafeHtml
   @NotNull
   private String fileStoreId ;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("documentUid")
   private String documentUid ;
 

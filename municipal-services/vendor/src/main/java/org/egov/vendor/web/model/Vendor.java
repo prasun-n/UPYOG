@@ -10,7 +10,7 @@ import org.egov.vendor.driver.web.model.Driver;
 import org.egov.vendor.web.model.location.Address;
 import org.egov.vendor.web.model.user.User;
 import org.egov.vendor.web.model.vehicle.Vehicle;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,17 +37,17 @@ import lombok.Setter;
 @Setter
 public class Vendor {
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("id")
 	private String id = null;
 
 	@JsonProperty("tenantId")
-	@SafeHtml
+	@CustomSafeHtml
 	@Size(max=64)
 	private String tenantId = null;
 
 	@JsonProperty("name")
-	@SafeHtml
+	@CustomSafeHtml
 	@Size(max=128)
 	private String name = null;
 
@@ -69,26 +69,26 @@ public class Vendor {
 	@JsonProperty("additionalDetails")
 	private Object additionalDetails = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("source")
 	private String source = null;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("description")
 	private String description = null;
 	
 	@JsonProperty("ownerId")
-	@SafeHtml
+	@CustomSafeHtml
 	@Size(max=64)
 	private String ownerId = null;
 
 	@JsonProperty("agencyType")
-	@SafeHtml
+	@CustomSafeHtml
 	@Size(max=128)
 	private String agencyType = null;
 	
 	@JsonProperty("paymentPreference")
-	@SafeHtml
+	@CustomSafeHtml
 	@Size(max=128)
 	private String paymentPreference = null;
 	

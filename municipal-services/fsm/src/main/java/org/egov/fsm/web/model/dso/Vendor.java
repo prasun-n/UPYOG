@@ -15,7 +15,7 @@ import org.egov.fsm.web.model.AuditDetails;
 import org.egov.fsm.web.model.location.Address;
 import org.egov.fsm.web.model.user.User;
 import org.egov.fsm.web.model.vehicle.Vehicle;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 /**
@@ -30,15 +30,15 @@ import org.springframework.validation.annotation.Validated;
 @Setter
 public class Vendor {
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("id")
 	private String id;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("tenantId")
 	private String tenantId;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("name")
 	private String name;
 
@@ -59,15 +59,15 @@ public class Vendor {
 	@JsonProperty("additionalDetails")
 	private Object additionalDetails;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("source")
 	private String source;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("description")
 	private String description;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("ownerId")
 	private String ownerId;
 

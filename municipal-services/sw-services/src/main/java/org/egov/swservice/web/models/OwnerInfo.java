@@ -17,7 +17,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 
 @Getter
 @Setter
@@ -26,24 +26,24 @@ import org.hibernate.validator.constraints.SafeHtml;
 @NoArgsConstructor
 public class OwnerInfo extends User{
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("ownerInfoUuid")
 	private String ownerInfoUuid;
 	
 	@NotNull
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("mobileNumber")
 	private String mobileNumber;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("gender")
 	private String gender;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("fatherOrHusbandName")
 	private String fatherOrHusbandName;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("correspondenceAddress")
 	private String correspondenceAddress;
 
@@ -54,11 +54,11 @@ public class OwnerInfo extends User{
 	private Double ownerShipPercentage;
 
 	@NotNull
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("ownerType")
 	private String ownerType;
 
-	@SafeHtml
+	@CustomSafeHtml
 	@JsonProperty("institutionId")
 	private String institutionId;
 	

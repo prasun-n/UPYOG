@@ -4,7 +4,7 @@ import java.util.Objects;
 
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,19 +18,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class Document   {
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("id")
   private String id = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("documentType")
   private String documentType = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("fileStore")
   private String fileStore = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("documentUid")
   private String documentUid = null;
 

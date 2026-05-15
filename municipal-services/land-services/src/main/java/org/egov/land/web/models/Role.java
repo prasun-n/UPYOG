@@ -5,7 +5,7 @@ import java.util.Objects;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.SafeHtml;
+import org.egov.tracer.annotations.CustomSafeHtml;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -27,15 +27,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Role   {
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("name")
   private String name = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("code")
   private String code = null;
 
-  @SafeHtml
+  @CustomSafeHtml
   @JsonProperty("description")
   private String description = null;
 

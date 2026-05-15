@@ -181,9 +181,21 @@ public class InstrumentService {
 		FinancialStatus cancelStatus  = microServiceUtil.getFinancialStatusByCode(tenantId, requestInfo , finSerMdms, FINANCE_STATUS_CANCELLED);
 		FinancialStatus newStatus  = microServiceUtil.getFinancialStatusByCode(tenantId, requestInfo , finSerMdms, FINANCE_STATUS_NEW);
 		List<InstrumentContract> instruments = microServiceUtil.getInstruments(InstrumentSearchContract.builder().receiptIds(paymentId).build(), requestInfo, tenantId);
+		LOGGER.info("FULL INSTRUMENT RESPONSE: {}", instruments);
 		if(instruments != null && !instruments.isEmpty()){
 			InstrumentContract instrumentContract = instruments.get(0);
-			if(instrumentContract.getFinancialStatus().getCode().equalsIgnoreCase(newStatus.getCode())){
+			FinancialStatus fs = instrumentContract.getFinancialStatus();
+			if (fs != null) {
+				try {
+					ObjectMapper mapper = new ObjectMapper();
+					LOGGER.info("FULL FinancialStatus JSON: {}", mapper.writeValueAsString(fs));
+				} catch (Exception e) {
+					LOGGER.error("Error converting FinancialStatus", e);
+				}
+			} else {
+				LOGGER.info("FinancialStatus object is NULL");
+			}
+			if(instrumentContract.getFinancialStatus().getId().equalsIgnoreCase(newStatus.getCode())){
 				instrumentContract .setFinancialStatus(cancelStatus);
 			StringBuilder url = new StringBuilder(propertiesManager.getInstrumentHostUrl() + propertiesManager.getInstrumentCancel());
 				InstrumentRequest request = new InstrumentRequest();
