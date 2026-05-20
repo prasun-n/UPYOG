@@ -163,14 +163,6 @@ config:
       - work-dir: "core-services/egov-localization/src/main/resources/db"
         image-name: "egov-localization-db"
 
-  - name: "builds/upyog/core-services/egov-location"
-    build:
-      - work-dir: "core-services/egov-location"
-        image-name: "egov-location"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/egov-location/src/main/resources/db"
-        image-name: "egov-location-db"
-
   - name: "builds/upyog/core-services/egov-mdms-service"
     build:
       - work-dir: "core-services/egov-mdms-service"
@@ -203,13 +195,6 @@ config:
         image-name: "egov-persister"
         dockerfile: "build/maven/Dockerfile"
 
-  - name: "builds/upyog/core-services/egov-pg-service"
-    build:
-      - work-dir: "core-services/egov-pg-service"
-        image-name: "egov-pg-service"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/egov-pg-service/src/main/resources/db"
-        image-name: "egov-pg-service-db"
 
   - name: "builds/upyog/core-services/egov-searcher"
     build:
@@ -890,7 +875,7 @@ config:
         image-name: "apply-workflow"
         dockerfile: "build/maven/Dockerfile"
         
-  - name: "builds/upyog/municipal-services/advertisement-services"
+  - name: "builds/upyog/municipal-services/advertisement-service"
     build:
       - work-dir: "municipal-services/advertisement-service"
         image-name: "adv-services"
@@ -947,12 +932,6 @@ config:
         dockerfile: "build/maven/Dockerfile"  
       - work-dir: "municipal-services/asset-calculator/src/main/resources/db"
         image-name: "asset-calculator-db" 
-
-  - name: builds/upyog/frontend/cnd-ui
-    build:
-      - work-dir: frontend/cnd-ui/
-        dockerfile: frontend/cnd-ui/web/docker/Dockerfile
-        image-name: cnd-ui 
   
   - name: "builds/upyog/municipal-services/cnd-service"
     build:
@@ -968,13 +947,7 @@ config:
         image-name: 'pgr-ai-services'
         dockerfile: 'build/maven/Dockerfile'
       - work-dir: "municipal-services/pgr-ai-services/src/main/resources/db"
-        image-name: "pgr-ai-services-db"
-
-  - name: builds/upyog/frontend/sv-ui
-    build:
-      - work-dir: frontend/sv-ui/
-        dockerfile: frontend/sv-ui/web/docker/Dockerfile
-        image-name: sv-ui       
+        image-name: "pgr-ai-services-db"      
 
   - name: "builds/upyog/municipal-services/tp-services"
     build:
@@ -1001,13 +974,3 @@ config:
         dockerfile: "build/maven/Dockerfile"  
       - work-dir: "municipal-services/vendor-management/src/main/resources/db"
         image-name: "vendor-management-db" 
-
- 
-        
-  - name: 'builds/upyog/municipal-services/cnd-calculator'
-    build:
-      - work-dir: 'municipal-services/cnd-calculator'
-        image-name: 'cnd-calculator'
-        dockerfile: 'build/maven/Dockerfile'
-      - work-dir: "municipal-services/cnd-calculator/src/main/resources/db"
-        image-name: "cnd-calculate-db"
