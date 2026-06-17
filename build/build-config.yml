@@ -867,7 +867,7 @@ config:
     build:
       - work-dir: dx-services/requester-services-dx
         image-name: requester-services-dx
-        dockerfile: build/maven/Dockerfile
+        dockerfile: dx-services/requester-services-dx/Dockerfile
 
   - name: "builds/upyog/utilities/apply-workflow"
     build:
