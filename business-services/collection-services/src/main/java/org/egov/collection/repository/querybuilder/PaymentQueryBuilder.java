@@ -804,6 +804,18 @@ public class PaymentQueryBuilder {
 
             preparedStatementValues.put("toDate", searchCriteria.getToDate());
         }
+        
+        if (!CollectionUtils.isEmpty(searchCriteria.getReceiptNumbers())) {
+            addClauseIfRequired(preparedStatementValues, selectQuery);
+            selectQuery.append(" pyd.receiptnumber IN (:receiptNumbers)");
+            preparedStatementValues.put("receiptNumbers", searchCriteria.getReceiptNumbers());
+        }
+         
+        if (searchCriteria.getReceiptDate() != null) {
+            addClauseIfRequired(preparedStatementValues, selectQuery);
+            selectQuery.append(" DATE(pyd.receiptdate) = DATE(:receiptDate)");
+            preparedStatementValues.put("receiptDate", searchCriteria.getReceiptDate());
+        }
 
         if (!CollectionUtils.isEmpty(searchCriteria.getPayerIds())) {
             addClauseIfRequired(preparedStatementValues, selectQuery);

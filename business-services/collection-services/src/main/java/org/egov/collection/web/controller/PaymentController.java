@@ -188,5 +188,18 @@ public class PaymentController {
 
         return getSuccessResponse(payments, requestInfo);
     }
+    
+    @RequestMapping(value = "/_receiptsearch", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<PaymentResponse> receiptSearch(
+            @ModelAttribute PaymentSearchCriteria paymentSearchCriteria,
+            @RequestBody @Valid final RequestInfoWrapper requestInfoWrapper) {
+        
+        final RequestInfo requestInfo = requestInfoWrapper.getRequestInfo();
+        
+        List<Payment> payments = paymentService.receiptSearch(paymentSearchCriteria);
+        
+        return getSuccessResponse(payments, requestInfo);
+    }
 
 }
