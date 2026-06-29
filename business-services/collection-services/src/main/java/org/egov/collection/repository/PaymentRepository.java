@@ -247,7 +247,7 @@ public class PaymentRepository {
         preparedStatementValues.put("offset", paymentSearchCriteria.getOffset());
         preparedStatementValues.put("limit", paymentSearchCriteria.getLimit());
 
-        return namedParameterJdbcTemplate.query("SELECT id from egcl_payment ORDER BY createdtime offset " + ":offset " + "limit :limit", preparedStatementValues, new SingleColumnRowMapper<>(String.class));   }
+        return namedParameterJdbcTemplate.query("SELECT id from egcl_payment ORDER BY createdtime offset " + ":offset " + "limit :limit", preparedStatementValues, new SingleColumnRowMapper<>(String.class));   
 }
     
     public List<String> fetchPaymentIdsByReceipt(PaymentSearchCriteria criteria) {
